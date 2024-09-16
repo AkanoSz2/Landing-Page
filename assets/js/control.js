@@ -7,12 +7,16 @@ window.addEventListener("load", function() {
     }, 3000); // 3000 milliseconds = 3 seconds
 });
 
-// Sidebar toggle functions
-const toggleSidebar = (show) => {
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.style.left = show ? "0" : "-100%";
-    document.body.style.overflow = show ? 'hidden' : 'auto';
-};
+function showSidebar(){
+    Sidebar = document.querySelector(".sidebar")
+    Sidebar.style.left = 0
+    document.body.style.overflow = 'hidden';
+}
+function hideSidebar(){
+    Sidebar = document.querySelector(".sidebar")
+    Sidebar.style.left = "-100%"
+    document.body.style.overflow = 'auto';
+}
 
 // 1. Function to animate intro elements with staggered timing
 function animateIntroElements() {
