@@ -1,0 +1,743 @@
+:root {
+    --logo_width: 300px;
+    --main-color: #2a2a72; /* Deep midnight blue for primary elements */
+    --background-color: #0a0a19; /* Nearly black with a hint of purple */
+    --second-background: #141435; /* Dark indigo background */
+    --third-background: #050514; /* Very dark with a blue tint */
+    --fourth-background: #1c1c3a; /* Deep purple-blue background */
+
+    --info-category-shadow: rgba(10, 8, 20, 0.8); /* Dark shadow with a blue hue */
+    
+    --primary-text-color: #dcdce0; /* Soft lavender-gray for text */
+    --secondary-text-color: #605888; /* Muted dusky purple for secondary text */
+    --font-family: 'Cinzel', serif; /* Elegant serif font */
+    --mini-font: 15px;
+    --small-font: 16px;
+    --medium-font: 21px;
+    --big-font: 28px;
+    --mega-font: 40px;
+    --border-radius: 5px;
+    --button-color: #6554b388; /* Rich dark purple for buttons */
+    --border-color: #43436e; /* Muted dark blue-purple border */
+    --filter-shadow: #0f0f28; /* Deep blue-black shadow */
+    --gradient-shadow: #332c6e; /* Dark gradient from blue to purple */
+}
+
+
+
+
+
+
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: var(--font-family);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background-color);
+}
+
+.loader-canva {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    z-index: 9999999999999999;
+    background-color: #050514;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.triangle1 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 100px 0 0;
+    border-color: #8086e0 transparent transparent transparent;
+    margin: 0 auto;
+    animation: shk1 1s ease-in-out infinite normal;
+  }
+  
+  .triangle2 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 100px 100px;
+    border-color: transparent transparent #6554b388 transparent;
+    margin: -100px auto 0;
+    animation: shk2 1s ease-in-out infinite alternate;
+  }
+  @keyframes shk1 {
+    0% {
+      transform: rotate(-360deg);
+    }
+  
+    100% {
+    }
+  }
+  
+  @keyframes shk2 {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+    }
+  }
+  
+  .text {
+    color: var(--primary-text-color);
+    font-size: var(--big-font);
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 4px;
+  }
+  
+
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fourth-background);
+    color: var(--primary-text-color);
+    position: fixed;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 99999;
+}
+
+header nav {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .left-side {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header .left-side img {
+    height: 80%;
+    width: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+header .left-side h1 {
+    width: fit-content;
+}
+
+header .right-side {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header ul {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: var(--medium-font);
+    cursor: pointer;
+}
+header ul  a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+header button {
+
+    width: 150px;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--button-color);
+    color: var(--primary-text-color);
+    font-size: var(--medium-font);
+    border-radius: 10px;
+}
+
+.home-icon {
+    width: 15%;
+    height: 100%;
+    padding: 0 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    font-size: var(--big-font);
+}
+
+
+@media (max-width:778px) {
+    .home-icon {
+        display: flex;
+    }
+    header nav {
+        width: 90%;
+    }
+    header .left-side{
+        width: 40%;
+    }
+    header .right-side {
+        display: none;
+    }
+} 
+
+@media (min-width:779px) and (max-width: 1024px) {
+
+    header nav {
+        width: 90%;
+    }
+    header .left-side{
+        width: 20%;
+    }
+    header .right-side {
+        width: 70%;
+    }
+    header ul {
+        width: 70%;
+    }
+} 
+
+
+
+.sidebar {
+    position: fixed; 
+    top: 0;
+    left: -100%; 
+    width: 100%; 
+    height: 100vh;
+    background-color: var(--background-color); 
+    overflow: hidden;
+    transition: left 0.5s ease; 
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    /* border:  solid 1px #fff; */
+    border-bottom: 0px !important;
+    transition: 1s;
+}
+.sidebar .top {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color:var(--primary-text-color);
+    border-bottom:  solid 1px #fff;
+}
+.sidebar .top p,
+.sidebar .top i {
+    font-size: var(--big-font);
+    width:40%;
+}
+.sidebar .top p{
+    text-align: left;
+}
+.sidebar .top i {
+    text-align: right;
+}
+.sidebar .content {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: var(--medium-font);
+}
+.sidebar .content ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    color: var(--primary-text-color);
+}
+.sidebar .content ul a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+.sidebar .content ul li {
+    list-style: none;
+    /* border:  solid 1px #fff; */
+    padding: 15px;
+}
+
+main {
+    margin-top: 50px;
+    width: 100%;
+    height: fit-content;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main .canva {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  url("https://w0.peakpx.com/wallpaper/631/765/HD-wallpaper-minecraft-trees-moon-underwater-games.jpg") center no-repeat;
+    background-size: cover;
+    background-color: var(--info-category-shadow); 
+    background-blend-mode: multiply;
+}
+#intro-section {
+    width: 80%;
+    height: 400px;
+    padding: 25px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    color:  var(--primary-text-color);
+    /* background: rgb(0, 0, 0, 0.7); */
+    
+}
+#intro-section .intro-content {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color:  var(--primary-text-color);
+    order: 1;
+}
+.intro-content h1 {
+    font-size: var(--mega-font);
+    padding: 20px 0;
+}
+.intro-content .about {
+    text-align: left;
+    font-size: var(--medium-font);  
+    
+}
+
+#intro-section img {
+    width: var(--logo_width);
+    object-fit: contain;
+    object-position: center;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    order: 2;
+
+}
+
+#intro-section .stats {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:  var(--primary-text-color);
+    order: 3;
+}
+#intro-section .stats .stats-item{
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#intro-section .stats .stats-item .stat {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    /* background-color: var(--fourth-background); */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+#intro-section .stats .stats-item .stat p {
+    font-size: var(--big-font);
+    text-align: center;
+}
+#intro-section .stats .stats-item .stat .desc {
+    font-size: var(--small-font);
+}
+/* Keyframe animation for fading in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Optional for slight slide effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden by default */
+#intro-section .intro-content,
+#intro-section img,
+#intro-section .stats {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly offscreen initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to apply fade-in animation */
+.intro-fade-in {
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn animation */
+}
+
+
+
+
+
+@media (max-width:749px){
+    #intro-section {
+        width: 100%;
+        background: rgb(0, 0, 0, 0.7);
+        height: fit-content;
+        flex-direction: column;
+    }
+    #intro-section img {
+        order: 1;
+        width: 50%;
+    
+    }
+    #intro-section .intro-content {
+        order: 2;
+        width: 80%;
+    }
+    .intro-content h1 {
+        text-align: center;
+        font-size: var(--mega-font);
+        padding: 10px 0;
+    }
+    .intro-content .about {
+        width: 100%;
+        text-align: center;
+        font-size: var(--medium-font);  
+        padding-bottom: 20px ;
+    }
+    #intro-section .stats {
+        order: 3;
+    }
+    #intro-section .stats .stats-item{
+        width: 90%;
+    }
+    #intro-section .stats .stats-item .stat p {
+        font-size: var(--medium-font);
+    }
+    #intro-section .stats .stats-item .stat .desc {
+        font-size: var(--mini-font);
+    }
+}
+
+#about-section {
+    width: 100%;
+    height: 400px;
+    padding: 25px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--fourth-background);
+}
+
+#resume-section {
+    width: 100%;
+    min-height: 200px;
+    padding: 25px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--third-background);
+    color: var(--primary-text-color);
+}
+#resume-section h1,
+#resume-section p {
+    text-align: center;
+    width: 80%;
+}
+#resume-section h1{
+    font-size: var(--mega-font);
+    padding: 25px 0
+}
+#resume-section p{
+    font-size: var(--medium-font);
+    margin-bottom: 30px;
+}
+
+#resume-section h1,
+#resume-section p{
+    opacity: 0;
+    /* transform: translateY(20px); /* Slightly offscreen initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+#resume-section .skills {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+    gap: 20px; /* Space between items */
+    width: 70%;
+    max-width: 80%; /* Ensures the grid does not exceed this width */
+    margin: 0 auto; /* Centers the grid container horizontally */
+    
+}
+
+.skill-item {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--fourth-background);
+    text-align: center; /* Centers text within each item */
+    box-sizing: border-box; /* Ensures padding and border are included in the item's total width */
+    opacity: 0;
+    transform: translateY(20px); /* slightly move the items down initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.resume-section .skill-item.show {
+    opacity: 1;
+    transform: translateY(0); /* bring the items back to their original position */
+}
+.icon {
+    font-size: 48px; /* Size of the icon */
+    color: var(--primary-text-color);
+}
+
+.skill-item p {
+    margin-top: 10px;
+    font-size: 16px; /* Font size for the skill name */
+    color: var(--primary-text-color);
+    margin-bottom: 0 !important;
+}
+
+
+@media (max-width: 1024px) {
+    #resume-section .skills {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+
+    #resume-section .skills {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        width: 90%;
+        max-width: 90%; /* Ensures the grid does not exceed this width */
+    }
+}
+
+
+
+
+
+#pricing-section {
+    width: 100%;
+    min-height: 400px;
+    padding: 25px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fourth-background);
+    color: var(--primary-text-color);
+}
+#pricing-section h1,
+#pricing-section p {
+    text-align: center;
+    width: 80%;
+    opacity: 0;
+    transform: translateY(20px); /* Slightly offscreen initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+#pricing-section h1{
+    font-size: var(--mega-font);
+}
+#pricing-section p{
+    font-size: var(--medium-font);
+    margin-bottom: 30px;
+}
+#pricing-section .rates {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px); /* 3 columns with equal width */
+    grid-auto-rows: 400px; /* Set a specific height for each row */
+    column-gap: 20px; /* Adjust column gap as needed */
+    row-gap: 20px; /* Adjust row gap as needed */
+    justify-content: center; /* Center the grid within its container */
+}
+
+#pricing-section .rates .item {
+    width: 100%;
+    height: 100%; /* Ensures items take full height of the grid row */
+    background: var(--background-color);
+    border: var(--border-color) 1px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    transform: translateY(20px); /* Move items down initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+#pricing-section .rates .item.show{
+    opacity: 1;
+    transform: translateY(0); /* Move items to their original position */
+}
+
+
+#pricing-section .rates .item .title {
+    font-size: var(--big-font);
+}
+
+.price {
+    font-family: Arial, sans-serif;
+    color: var(--primary-text-color);
+    width: 90%;
+    height: 15%;
+    background-color: var(--fourth-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.price p {
+    margin-bottom: 0 !important;
+}
+.price .currency {
+    font-size: var(--medium-font);
+    vertical-align: top;
+}
+
+.price .amount {
+    font-size: var(--mega-font);
+    font-weight: bold;
+}
+
+.price .per {
+    font-size: var(--big-font);
+    color: var(--secondary-text-color); 
+    vertical-align: bottom;
+}
+
+#pricing-section .rates .item ul {
+    width: 90%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    font-size: var(--medium-font);
+    margin-left: 20%;
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+}
+
+#pricing-section .rates .item ul li {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+#pricing-section .rates .item ul li::before {
+    content: "\2713"; /* Unicode for the checkmark */
+    color: var(--secondary-text-color); /* Adjust this to match the color of the checkmark in your image */
+    font-size: var(--medium-font); /* Same size as text */
+    margin-right: 8px; /* Space between checkmark and text */
+}
+
+#pricing-section .rates .item button{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: fit-content; 
+    padding: 15px 20px;
+    height: 45px; 
+    width: 50%;
+    margin: 5px; 
+    background-color: var(--button-color);
+    color: var(--primary-text-color);
+    font-size: var(--medium-font);
+    border-radius: 7px;
+}
+@media (max-width:749px){
+    #pricing-section h1{
+        font-size: var(--big-font);
+        margin-bottom: 15px;
+    }
+    #pricing-section .rates {
+        grid-template-columns: repeat(1, 300px); 
+    }
+    .price p {
+        margin-bottom: 0 !important;
+    }
+
+}
+@media (min-width:750px) and (max-width:900px){
+    #pricing-section .rates {
+        grid-template-columns: repeat(2, 50%); 
+
+    }
+}
+
+
+footer {
+    min-height: 50px; /* Ensures footer doesn't collapse */
+    width: 100%;
+    background-color: var(--fourth-background);
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--medium-font);
+    flex-shrink: 0; /* Prevents flex from overriding height */
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    width: fit-content;
+}
