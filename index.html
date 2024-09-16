@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="./assets/content/navbar-icon.png" type="image/x-icon">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <div class="loader-canva">
+        <div class="triangle1"></div>
+        <div class="triangle2"></div>
+        <p class="text">Please Wait</p>
+    </div>
+    <header>
+        <nav>
+            <div class="left-side">
+                <img src="./assets/content/navbar-icon.png" alt="">
+                <h1>Name</h1>
+            </div>
+            <div class="right-side">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#resume-section">Resume</a> </li>
+                    <li><a href="#pricing-section">Services</a> </li>
+                    <li><a href="#review-section">Testimonials</a> </li>
+                </ul>
+                <button>Discord</button>
+            </div>
+            <div class="home-icon" onclick="showSidebar()">
+                <i onclick="showSidebar()" class="fas  fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="top">
+            <p>Menu</p>
+            <i class="fas fa-times" onclick="hideSidebar()" ></i>
+        </div>
+        <div class="content">
+            <ul>
+                <li onclick="hideSidebar()"><a href="#home">Home</a></li>
+                <li onclick="hideSidebar()"><a href="#about-section">About</a></li>
+                <li onclick="hideSidebar()"><a href="#resume-section">Resume</a> </li>
+                <li onclick="hideSidebar()"><a href="#pricing-section">Services</a> </li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <section id="home" class="canva">
+            <section id="intro-section">
+                <div class="intro-content">
+                    <h1>Hi, decaf is a thing by the way!! </h1>
+                    <p class="about">Decaf: The cruel joke of coffee—sip and realize life's too short for bland. It's like coffee's way of saying, "No fun for you!"</p>
+                </div>
+                <img src="./assets/content/intro-logo.png" alt=""> 
+                <div class="stats">
+                    <div class="stats-item">
+                        <div class="stat">
+                            <p class="number">50</p>
+                            <p class="desc">coffee</p>
+                        </div>
+                        <div class="stat">
+                            <p class="number">175</p>
+                            <p class="desc">coffee</p>
+                        </div>
+                        <div class="stat">
+                            <p class="number">50000</p>
+                            <p class="desc">coffee</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </section>
+        <section id="resume-section" class="resume-section">
+            <h1>RESUME</h1>
+            <p>Decaf: The cruel joke of coffee—sip and realize life's too short for bland.</p>
+            <div class="skills">
+                <div class="skill-item">
+                    <div class="icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <p>Node.js</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <p>Mongo Db</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <p>Config</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <p>Python</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pricing-section">
+            <h1>SERVICES</h1>
+            <p>
+                Decaf: The ultimate betrayal of the coffee worlds coffee
+            </p>
+            <div class="rates">
+                <div class="item">
+                    <h1 class="title">Coffee Supply</h1>
+                    <div class="price">
+                        <p><span class="currency">$</span><span class="amount">18</span> <span class="per">/ hour</span></p>
+                    </div>                    
+                    <ul class="things">
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                    </ul>
+                    <button>Purchase</button>
+                </div>
+                <div class="item">
+                    <h1 class="title">Coffee Supply</h1>
+                    <div class="price">
+                        <p><span class="currency">$</span><span class="amount">180</span> <span class="per">/ month</span></p>
+                    </div>                    
+                    <ul class="things">
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                    </ul>
+                    <button>Purchase</button>
+                </div>
+                <div class="item">
+                    <h1 class="title">Coffee Supply</h1>
+                    <div class="price">
+                        <p><span class="currency">$</span><span class="amount">999</span> <span class="per">/ lifetime</span></p>
+                    </div>                    
+                    <ul class="things">
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                        <li>coffee</li>
+                    </ul>
+                    <button>Purchase</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Name. All rights reserved.</p>
+    </footer>
+
+
+    <script src="./assets/js/control.js"></script>
+</body>
+</html>
