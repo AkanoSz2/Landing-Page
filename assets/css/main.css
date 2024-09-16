@@ -563,7 +563,7 @@ main .canva {
 @media (max-width: 768px) {
 
     #resume-section .skills {
-        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        grid-template-columns: repeat(2, 1fr); /* 3 items per row */
         width: 90%;
         max-width: 90%; /* Ensures the grid does not exceed this width */
     }
