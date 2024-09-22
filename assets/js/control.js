@@ -4,7 +4,7 @@ window.addEventListener("load", function() {
         document.querySelector('.loader-canva').style.display = 'none';
         document.querySelector('main').style.display = 'flex';
         animateIntroElements();
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 3000 milliseconds = 3 seconds
 });
 
 function showSidebar(){
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(resumeSection);
 });
 
+
 // Pricing section visibility and animation
 document.addEventListener('DOMContentLoaded', () => {
     const pricingSection = document.querySelector('#pricing-section');
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (index === pricingElements.length - 1) { // Use pricingElements here
                     incrementNumbers();
                 }
-            }, index * 150); // Delay each element's animation for a staggered effect
+            }, index * 150); 
         });
     };
     
@@ -116,4 +117,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.3 });
 
     observer.observe(pricingSection);
+});
+
+
+// Pricing section visibility and animation
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewSection = document.querySelector('#review-section');
+    const reviewItems = document.querySelectorAll('#review-section .rates .item');
+    const reviewElements = document.querySelectorAll('#review-section h1, #review-section p');
+
+    const animatereviewElements = () => {
+        reviewElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('intro-fade-in');
+                if (index === reviewElements.length - 1) { // Use reviewElements here
+                    incrementNumbers();
+                }
+            }, index * 150); // Delay each element's animation for a staggered effect
+        });
+    };
+    
+    const showreviewItems = () => {
+        reviewItems.forEach((item, index) => {
+            setTimeout(() => item.classList.add('show'), index * 200);
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animatereviewElements();
+                showreviewItems();
+                observer.unobserve(reviewSection);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(reviewSection);
 });

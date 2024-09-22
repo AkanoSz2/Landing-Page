@@ -21,6 +21,9 @@
     --border-color: #43436e; /* Muted dark blue-purple border */
     --filter-shadow: #0f0f28; /* Deep blue-black shadow */
     --gradient-shadow: #332c6e; /* Dark gradient from blue to purple */
+
+    --loader-color-top: #8086e0;
+    --loader-color-bottom: #6554b388 ;
 }
 
 
@@ -56,7 +59,7 @@ body {
     height: 100vh;
     display: flex;
     z-index: 9999999999999999;
-    background-color: #050514;
+    background-color: var(--third-background);
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -68,7 +71,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 100px 100px 0 0;
-    border-color: #8086e0 transparent transparent transparent;
+    border-color: var(--loader-color-top) transparent transparent transparent;
     margin: 0 auto;
     animation: shk1 1s ease-in-out infinite normal;
   }
@@ -78,7 +81,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 0 0 100px 100px;
-    border-color: transparent transparent #6554b388 transparent;
+    border-color: transparent transparent var(--loader-color-bottom) transparent;
     margin: -100px auto 0;
     animation: shk2 1s ease-in-out infinite alternate;
   }
@@ -482,7 +485,7 @@ main .canva {
 #resume-section {
     width: 100%;
     min-height: 200px;
-    padding: 25px 0;
+    padding: 50px 0 25px 0;
 
     display: flex;
     flex-direction: column;
@@ -577,7 +580,8 @@ main .canva {
 #pricing-section {
     width: 100%;
     min-height: 400px;
-    padding: 25px 0;
+    padding: 75px 0 0 0;
+
 
     display: flex;
     flex-direction: column;
@@ -727,6 +731,125 @@ main .canva {
 
     }
 }
+
+
+#review-section {
+    width: 100%;
+    min-height: 300px;
+    padding: 25px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fourth-background);
+    color: var(--primary-text-color);
+}
+#review-section h1,
+#review-section p {
+    text-align: center;
+    width: 80%;
+    opacity: 0;
+    transform: translateY(20px); /* Slightly offscreen initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+#review-section h1{
+    font-size: var(--mega-font);
+}
+#review-section p{
+    font-size: var(--medium-font);
+    margin-bottom: 30px;
+}
+#review-section .rates {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px); /* 3 columns with equal width */
+    grid-auto-rows: 300px; /* Set a specific height for each row */
+    column-gap: 20px; /* Adjust column gap as needed */
+    row-gap: 20px; /* Adjust row gap as needed */
+    justify-content: center; /* Center the grid within its container */
+}
+
+#review-section .rates .item {
+    width: 100%;
+    height: 100%; /* Ensures items take full height of the grid row */
+    background: var(--background-color);
+    border: var(--border-color) 1px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    transform: translateY(20px); /* Move items down initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    color: var(--primary-text-color);
+}
+
+#review-section .rates .item.show{
+    opacity: 1;
+    transform: translateY(0); /* Move items to their original position */
+}
+
+  .testimonial-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 20%;
+    width: 80%;
+  }
+  
+  .testimonial-photo {
+    max-height: 80%; /* The image will be at most 90% of its parent's height */
+    width: auto; /* Width adjusts automatically to maintain aspect ratio */
+    object-fit: cover; /* The image will cover the container without distortion */
+    object-position: center; /* Ensures the content of the image is centered */
+    border-radius: 50%; /* For rounded corners */
+}
+
+
+  
+  h3 {
+    font-size: var(--big-font);
+    font-weight: bold;
+    width: fit-content;
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    height: 70%;
+    width: 100%;
+    display: grid;
+    place-items: center; /* Centers items both vertically and horizontally */
+  }
+  .testimonial-text p {
+    font-size: var(--medium-font);
+    width: 80% !important;
+    text-align: center;
+    vertical-align: middle;
+
+  }
+
+@media (max-width:749px){
+    #review-section {
+        padding: 70px 0;
+    }
+    #review-section h1{
+        font-size: var(--big-font);
+        margin-bottom: 15px;
+    }
+    #review-section .rates {
+        grid-template-columns: repeat(1, 300px); 
+    }
+
+}
+@media (min-width:750px) and (max-width:900px){
+    #review-section .rates {
+        grid-template-columns: repeat(2, 50%); 
+
+    }
+}
+
 
 
 footer {
