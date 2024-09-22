@@ -548,6 +548,10 @@ main .canva {
     font-size: 48px; /* Size of the icon */
     color: var(--primary-text-color);
 }
+.icon img{
+    width: 60px;
+    height: 60px;
+}
 
 .skill-item p {
     margin-top: 10px;
